@@ -79,29 +79,6 @@ class FrameDemo extends JFrame {
     }
 }
 
-public class ElecBill {
-    public static double calculateBill(String type, int units) {
-        double bill = 0;
-
-        if (type.equalsIgnoreCase("domestic")) {
-            if (units <= 100) bill = units * 1;
-            else if (units <= 200) bill = 100 * 1 + (units - 100) * 2.50;
-            else if (units <= 500) bill = 100 * 1 + 100 * 2.50 + (units - 200) * 4;
-            else bill = 100 * 1 + 100 * 2.50 + 300 * 4 + (units - 500) * 6;
-        } else if (type.equalsIgnoreCase("commercial")) {
-            if (units <= 100) bill = units * 2;
-            else if (units <= 200) bill = 100 * 2 + (units - 100) * 4.50;
-            else if (units <= 500) bill = 100 * 2 + 100 * 4.50 + (units - 200) * 6;
-            else bill = 100 * 2 + 100 * 4.50 + 300 * 6 + (units - 500) * 7;
-        }
-        return bill;
-    }
-
-    public static void main(String[] args) {
-        new FrameDemo();
-    }
-}
-
 
 public class ElecBill {
     public static double calculateBill(String type, int units) {
