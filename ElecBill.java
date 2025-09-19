@@ -8,13 +8,29 @@ class FrameDemo extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JLabel consId = new JLabel("Consumer ID:");
+        consId.setBounds(25, 25, 120, 25);
+        add(consId);
+
+        JTextField txtId = new JTextField();
+        txtId.setBounds(150, 25, 100, 25);
+        add(txtId);
+
+        JLabel consName = new JLabel("Consumer Name:");
+        consName.setBounds(25, 60, 120, 25);
+        add(consName);
+
+        JTextField txtName = new JTextField();
+        txtName.setBounds(150, 60, 100, 25);
+        add(txtName);
+
         // Radio buttons for type
         JRadioButton rdoDomestic = new JRadioButton("Domestic");
-        rdoDomestic.setBounds(25, 25, 100, 25);
+        rdoDomestic.setBounds(25, 100, 100, 25);
         add(rdoDomestic);
 
         JRadioButton rdoCommercial = new JRadioButton("Commercial");
-        rdoCommercial.setBounds(150, 25, 100, 25);
+        rdoCommercial.setBounds(150, 100, 100, 25);
         add(rdoCommercial);
 
         // Group them so only one can be selected
@@ -24,17 +40,17 @@ class FrameDemo extends JFrame {
 
         // Label
         JLabel lblUnits = new JLabel("Number of Units:");
-        lblUnits.setBounds(25, 60, 120, 25);
+        lblUnits.setBounds(25, 140, 120, 25);
         add(lblUnits);
 
         // Text field
         JTextField txtUnits = new JTextField();
-        txtUnits.setBounds(150, 60, 100, 25);
+        txtUnits.setBounds(150, 140, 100, 25);
         add(txtUnits);
 
         // Button
         JButton btn = new JButton("Submit");
-        btn.setBounds(25, 100, 225, 30);
+        btn.setBounds(25, 180, 225, 30);
         add(btn);
 
         // Action Listener
@@ -62,6 +78,30 @@ class FrameDemo extends JFrame {
         setVisible(true);
     }
 }
+
+public class ElecBill {
+    public static double calculateBill(String type, int units) {
+        double bill = 0;
+
+        if (type.equalsIgnoreCase("domestic")) {
+            if (units <= 100) bill = units * 1;
+            else if (units <= 200) bill = 100 * 1 + (units - 100) * 2.50;
+            else if (units <= 500) bill = 100 * 1 + 100 * 2.50 + (units - 200) * 4;
+            else bill = 100 * 1 + 100 * 2.50 + 300 * 4 + (units - 500) * 6;
+        } else if (type.equalsIgnoreCase("commercial")) {
+            if (units <= 100) bill = units * 2;
+            else if (units <= 200) bill = 100 * 2 + (units - 100) * 4.50;
+            else if (units <= 500) bill = 100 * 2 + 100 * 4.50 + (units - 200) * 6;
+            else bill = 100 * 2 + 100 * 4.50 + 300 * 6 + (units - 500) * 7;
+        }
+        return bill;
+    }
+
+    public static void main(String[] args) {
+        new FrameDemo();
+    }
+}
+
 
 public class ElecBill {
     public static double calculateBill(String type, int units) {
