@@ -9,3 +9,151 @@ their gross and net salary in the respective subclasses.
 professor = 97% as pa , 10% as hra, 12% as pf ,0.1% for staff club fund
 assosiate prof 70% as pa , 10% as hra, 12% as pf ,0.1% for staff club fund
 assistant porf 60% as pa , 10% as hra, 12% as pf ,0.1% for staff club fund
+
+
+
+class Employee {
+    String name;
+    String employeeId;
+    String address;
+    String email;
+    String mobileNo;
+    double basicPay;
+
+    public Employee(String name, String employeeId, String address, String email, String mobileNo, double basicPay) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.address = address;
+        this.email = email;
+        this.mobileNo = mobileNo;
+        this.basicPay = basicPay;
+    }
+
+    // Method to generate payslip - to be overridden
+    public void generatePaySlip() {
+        System.out.println("Generating payslip for " + name);
+    }
+}
+
+class AssistantProfessor extends Employee {
+    public AssistantProfessor(String name, String employeeId, String address, String email, String mobileNo, double basicPay) {
+        super(name, employeeId, address, email, mobileNo, basicPay);
+    }
+
+    @Override
+    public void generatePaySlip() {
+        double pa = 0.60 * basicPay;          // 60% of basic pay
+        double hra = 0.10 * basicPay;         // 10%
+        double pf = 0.12 * basicPay;          // 12%
+        double staffClubFund = 0.001 * basicPay; // 0.1%
+        double grossSalary = basicPay + pa + hra;
+        double deductions = pf + staffClubFund;
+        double netSalary = grossSalary - deductions;
+
+        System.out.println("------ Assistant Professor Pay Slip ------");
+        printCommonDetails();
+        System.out.printf("Basic Pay: %.2f\n", basicPay);
+        System.out.printf("PA (60%%): %.2f\n", pa);
+        System.out.printf("HRA (10%%): %.2f\n", hra);
+        System.out.printf("Gross Salary: %.2f\n", grossSalary);
+        System.out.printf("PF (12%%): %.2f\n", pf);
+        System.out.printf("Staff Club Fund (0.1%%): %.2f\n", staffClubFund);
+        System.out.printf("Net Salary: %.2f\n", netSalary);
+        System.out.println("-----------------------------------------");
+    }
+
+    private void printCommonDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Address: " + address);
+        System.out.println("Email: " + email);
+        System.out.println("Mobile No: " + mobileNo);
+    }
+}
+
+class AssociateProfessor extends Employee {
+    public AssociateProfessor(String name, String employeeId, String address, String email, String mobileNo, double basicPay) {
+        super(name, employeeId, address, email, mobileNo, basicPay);
+    }
+
+    @Override
+    public void generatePaySlip() {
+        double pa = 0.70 * basicPay;          // 70% of basic pay
+        double hra = 0.10 * basicPay;         // 10%
+        double pf = 0.12 * basicPay;          // 12%
+        double staffClubFund = 0.001 * basicPay; // 0.1%
+        double grossSalary = basicPay + pa + hra;
+        double deductions = pf + staffClubFund;
+        double netSalary = grossSalary - deductions;
+
+        System.out.println("------ Associate Professor Pay Slip ------");
+        printCommonDetails();
+        System.out.printf("Basic Pay: %.2f\n", basicPay);
+        System.out.printf("PA (70%%): %.2f\n", pa);
+        System.out.printf("HRA (10%%): %.2f\n", hra);
+        System.out.printf("Gross Salary: %.2f\n", grossSalary);
+        System.out.printf("PF (12%%): %.2f\n", pf);
+        System.out.printf("Staff Club Fund (0.1%%): %.2f\n", staffClubFund);
+        System.out.printf("Net Salary: %.2f\n", netSalary);
+        System.out.println("-----------------------------------------");
+    }
+
+    private void printCommonDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Address: " + address);
+        System.out.println("Email: " + email);
+        System.out.println("Mobile No: " + mobileNo);
+    }
+}
+
+class Professor extends Employee {
+    public Professor(String name, String employeeId, String address, String email, String mobileNo, double basicPay) {
+        super(name, employeeId, address, email, mobileNo, basicPay);
+    }
+
+    @Override
+    public void generatePaySlip() {
+        double pa = 0.97 * basicPay;          // 97% of basic pay
+        double hra = 0.10 * basicPay;         // 10%
+        double pf = 0.12 * basicPay;          // 12%
+        double staffClubFund = 0.001 * basicPay; // 0.1%
+        double grossSalary = basicPay + pa + hra;
+        double deductions = pf + staffClubFund;
+        double netSalary = grossSalary - deductions;
+
+        System.out.println("------ Professor Pay Slip ------");
+        printCommonDetails();
+        System.out.printf("Basic Pay: %.2f\n", basicPay);
+        System.out.printf("PA (97%%): %.2f\n", pa);
+        System.out.printf("HRA (10%%): %.2f\n", hra);
+        System.out.printf("Gross Salary: %.2f\n", grossSalary);
+        System.out.printf("PF (12%%): %.2f\n", pf);
+        System.out.printf("Staff Club Fund (0.1%%): %.2f\n", staffClubFund);
+        System.out.printf("Net Salary: %.2f\n", netSalary);
+        System.out.println("--------------------------------");
+    }
+
+    private void printCommonDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Address: " + address);
+        System.out.println("Email: " + email);
+        System.out.println("Mobile No: " + mobileNo);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        AssistantProfessor asstProf = new AssistantProfessor("Alice", "AP001", "123 Street, City", "alice@mail.com", "1234567890", 50000);
+        AssociateProfessor assocProf = new AssociateProfessor("Bob", "ASP001", "456 Avenue, City", "bob@mail.com", "0987654321", 70000);
+        Professor prof = new Professor("Charlie", "P001", "789 Boulevard, City", "charlie@mail.com", "1122334455", 90000);
+
+        asstProf.generatePaySlip();
+        System.out.println();
+        assocProf.generatePaySlip();
+        System.out.println();
+        prof.generatePaySlip();
+    }
+}
+
