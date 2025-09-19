@@ -1,0 +1,9 @@
+design, develop and impliment a menu driven program in c the following operations on single linked list
+of student data with the fields
+usn, name, branch, sem, phone no
+
+1. create a ssl of 'n' students data
+2. display status of sll and count the no of nodes
+3. perform insertion and deletion at the end of sll
+4. perform insertion and deletion at the begining of sll
+5.exit
