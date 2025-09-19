@@ -1,0 +1,11 @@
+make a java program with employee class which includes employee name, employee id, address mail, id mob no. as memnbers
+inherit the classes
+assistant porfessor
+assosiate professor
+professor
+from employee class
+add basic pay as the member of base class. based on the criteria given below generate the pay slip for the emoployee with 
+their gross and net salary in the respective subclasses.
+professor = 97% as pa , 10% as hra, 12% as pf ,0.1% for staff club fund
+assosiate prof 70% as pa , 10% as hra, 12% as pf ,0.1% for staff club fund
+assistant porf 60% as pa , 10% as hra, 12% as pf ,0.1% for staff club fund
